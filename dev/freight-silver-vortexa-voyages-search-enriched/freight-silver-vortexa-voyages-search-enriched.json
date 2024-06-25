@@ -1,0 +1,36 @@
+{
+  "name" : "freight-silver-vortexa-voyages-search-enriched",
+  "jobMode" : "SCRIPT",
+  "description" : "",
+  "role" : "arn:aws:iam::334585001463:role/service-role/AWSGlueServiceRole-freight",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-scripts-334585001463-us-east-1/freight/freight-silver-vortexa-voyages-search-enriched",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--extra-py-files" : "s3://aws-glue-scripts-334585001463-us-east-1/shared/kmt-glue-utilities.zip,s3://aws-glue-scripts-334585001463-us-east-1/shared/kmt-glue-patterns.zip",
+    "--job-bookmark-option" : "job-bookmark-enable",
+    "--enable-job-insights" : "false",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-temporary-334585001463-us-east-1/freight/",
+    "--enable-auto-scaling" : "true"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 5,
+  "timeout" : 60,
+  "maxCapacity" : 5.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 5,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "Test",
+    "branch" : "main",
+    "folder" : "dev/freight-silver-vortexa-voyages-search-enriched"
+  }
+}
